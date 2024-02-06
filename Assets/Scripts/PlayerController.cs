@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float forwardInput;
     public float xRange = 37;
-    public float zRange = 20;
+    public float zRange = 40;
     public GameObject projectilePrefab;
     void Update()
     {
@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        /*/
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        /*/
 
         if (transform.position.x < -xRange)
         {
@@ -36,7 +38,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
+
         //Broken right now. Player will teleport before hitting boundary
+        /*/
         if (transform.position.z < -zRange)
         {
             transform.position = new Vector3(-zRange, transform.position.y, transform.position.x);
@@ -44,8 +48,8 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z > zRange)
         {
             transform.position = new Vector3(zRange, transform.position.y, transform.position.x);
-        }
-
+        } /*/
+        // Shoot projectile with space
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
