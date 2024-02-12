@@ -14,16 +14,16 @@ public class PlayerController : MonoBehaviour
     public float speed = 20;
     public float turnSpeed;
     private float horizontalInput;
-    private float forwardInput;
-    public float xRange = 37;
-    public float zRange = 40;
+   /*/ private float forwardInput;/*/
+    public float xRange = 37; 
+   /*/ public float zRange = 40; /*/
     public GameObject projectilePrefab;
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        /*/forwardInput = Input.GetAxis("Vertical"); /*/
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+       /*/ transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput); /*/
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
         /*/
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
